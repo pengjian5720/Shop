@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -22,9 +23,10 @@
 <div class="top">
   <div class="top_center">
     <ul class="top_bars">
-      <li><a href="#">退出</a>|</li>
+      <li><a href="#">${sessionScope.customer.name}</a>|</li>
+      <li><a href="${applicationScope.url}">${applicationScope.status}</a>|</li>
       <li><a href="#">我的订单<span class="jt_down"></span></a>|</li>
-      <li><a href="#">关注杰普<span class="jt_down"></span></a>|</li>
+      <li><a href="#">购物车<span class="jt_down"></span></a>|</li>
       <li><a href="#">网站导航<span class="jt_down"></span></a></li>
     </ul>
   </div>
@@ -45,16 +47,16 @@
       <a href="#">漫画类</a>|
     </p>
   </div>
-  <div class="h3_right">
-    <div class="myyy">
-      个人信息
-      <span class="sj_down"></span>
-    </div>
-    <div class="tsc">
-      <a href="shopCart.html">去购物车结算</a>
-      <span class="sj_right"></span>
-    </div>
-  </div>
+<%--  <div class="h3_right">--%>
+<%--    <div class="myyy">--%>
+<%--      个人信息--%>
+<%--      <span class="sj_down"></span>--%>
+<%--    </div>--%>
+<%--    <div class="tsc">--%>
+<%--      <a href="shopCart.html">去购物车结算</a>--%>
+<%--      <span class="sj_right"></span>--%>
+<%--    </div>--%>
+<%--  </div>--%>
 </div>
 <!--头部导航-->
 <div class="nav_top">
@@ -76,6 +78,17 @@
   <div class="c3_b1">
     <div class="c3_b1_left">
       <dl>
+        <c:forEach var="type" items="${applicationScope.typeList1}">
+          <dd>
+            <h1>文学类</h1>
+            <p>
+              <a href="list.html">文学</a>
+              <a href="list.html">文学</a>
+              <a href="list.html">文学</a>
+              <a href="list.html">文学</a>
+            </p>
+          </dd>
+        </c:forEach>
         <dd>
           <h1>文学类</h1>
           <p>

@@ -1,7 +1,7 @@
 /* CSS Document */
 /**-------登陆页面-------**/
 .header1{
-	width:1020;
+	width:1020px;
 	margin:0 auto;
 }
 .header1 img{
@@ -297,7 +297,7 @@ span.pwd_icon{
 }
 .header3 .search_box input{
 	float:left;
-	width:418px;
+	width:600px;
 	height:34px;
 	border:none;
 }
@@ -509,7 +509,7 @@ span.pwd_icon{
 	height:191px;
 	float:left;
 	margin-right:12px;
-	background:url(../images/p021.jpg) no-repeat center;
+	background:url(../images/p021.png) no-repeat center;
 	cursor:pointer;
 }
 .c3_b2 ul li.no_mr{
@@ -950,7 +950,7 @@ span.pwd_icon{
 }
 .c4_b4_y ul li.shipbox{
 	border:1px solid #cccccc;
-	height:23x;
+	height:23px;
 	line-height:23px;
 	padding:0 4px;
 	margin:4px 10px 5px 0;
@@ -1100,7 +1100,7 @@ span.pwd_icon{
 .cn5topy_share{
 	height:18px;
 	line-height:18px;
-	margin:10 10px;
+	margin:10px 10px;
 }
 .cn5topy_share>div{
 	float:right;
@@ -1170,7 +1170,7 @@ dd.price_enum{
 	color:#006cd7;
 }
 .propricey_2 b{
-	height:20x;
+	height:20px;
 	line-height:20px;
 	padding:0 6px;
 	background-color:#e4393c;
@@ -1736,7 +1736,7 @@ img.intro_pic{
 .shopcar_items_pro .pro_x img{
 	width:80px;
 	height:80px;
-	border:1px solid #dd;
+	border:1px solid;
 	float:left;
 }
 .shopcar_items_pro .pro_x p{

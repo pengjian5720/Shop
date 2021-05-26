@@ -43,12 +43,11 @@ public class RegisterService  implements ICustomerService {
             ps.setString(1, name);
             ResultSet rs=ps.executeQuery();
             if (rs.next()){
-                System.out.println("用户名："+rs.getString("name"));
+//                System.out.println("用户名："+rs.getString("name"));
                 customer.setName(rs.getString("name"));
-
             }
             else {
-                customer.setName("");   
+                customer.setName("");
             }
         } catch (SQLException e) {
             e.printStackTrace();

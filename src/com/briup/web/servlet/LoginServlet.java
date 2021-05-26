@@ -2,6 +2,8 @@ package com.briup.web.servlet;
 
 import com.briup.bean.Customer;
 import com.briup.service.serviceClass.LoginService;
+
+import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -15,6 +17,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         Customer customer=service.login(name, password);
         if(customer.getName().equals(name)){
             HttpSession session= request.getSession(true);
+            ServletContext application = this.getServletContext();
+            application.setAttribute("status", "退出");
+            application.setAttribute("url","exitServlet");
             session.setAttribute("customer",customer);
             request.getRequestDispatcher("index.jsp").forward(request,response);
 
