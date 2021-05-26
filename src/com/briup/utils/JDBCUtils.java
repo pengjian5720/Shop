@@ -5,51 +5,9 @@ import com.alibaba.druid.util.JdbcUtils;
 
 import javax.sql.DataSource;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import java.sql.Statement;
 import java.util.Properties;
 
 public class JDBCUtils {
@@ -68,10 +26,10 @@ public class JDBCUtils {
     public static Connection getConnection() throws SQLException {
         return dataSource.getConnection();
     }
-    public void close(Connection conn, Statement stat) {
+    public static void close(Connection conn, PreparedStatement stat) {
         close(null, conn, stat);
     }
-    public void close(ResultSet rt, Connection conn, Statement stat) {
+    public static void close(ResultSet rt, Connection conn, PreparedStatement stat) {
         try {
             if(rt != null)rt.close();
             if(stat != null)stat.close();

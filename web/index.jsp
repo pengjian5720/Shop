@@ -78,51 +78,19 @@
   <div class="c3_b1">
     <div class="c3_b1_left">
       <dl>
-        <c:forEach var="type" items="${applicationScope.typeList1}">
+        <c:forEach var="category" items="${applicationScope.categorylist}">
           <dd>
-            <h1>文学类</h1>
+            <h1>${category.name}</h1>
             <p>
-              <a href="list.html">文学</a>
-              <a href="list.html">文学</a>
-              <a href="list.html">文学</a>
-              <a href="list.html">文学</a>
+              <c:forEach var="category1" items="${category.categories}">
+                <a href="list.html">${category1.name}</a>
+              </c:forEach>
             </p>
           </dd>
         </c:forEach>
-        <dd>
-          <h1>文学类</h1>
-          <p>
-            <a href="list.html">文学</a>
-            <a href="list.html">文学</a>
-            <a href="list.html">文学</a>
-            <a href="list.html">文学</a>
-          </p>
-        </dd>
-        <dd>
-          <h1>教育类</h1>
-          <p>
-            <a href="list.html">教育</a>
-            <a href="list.html">教育</a>
-            <a href="list.html">教育</a>
-            <a href="list.html">教育</a>
-          </p>
-        </dd>
-        <dd>
-          <h1>计算机</h1>
-          <p>
-
-            <a href="list.html">计算机</a>
-            <a href="list.html">计算机</a>
-            <a href="list.html">计算机</a>
-          </p>
-        </dd>
       </dl>
     </div>
     <div class="c3_b1_center">
-      <!-- <div>
-          <a href="#"><img src="images/ad1.png"></a>
-      </div> -->
-      <!-- 图片伦伯 -->
       <div class="carousel" id="carousel">
         <div class="btns">
           <a href="javascript:;" class="leftBtn" id="leftBtn"></a>

@@ -1,6 +1,7 @@
 package com.briup.service.serviceClass;
 
 import com.briup.bean.Customer;
+import com.briup.dao.daoClass.CustomerDAO;
 import com.briup.service.serviceInterface.ICustomerService;
 import com.briup.utils.JDBCUtils;
 
@@ -23,24 +24,7 @@ public class LoginService implements ICustomerService {
 
     @Override
     public Customer login(String name, String password) {
-        Customer customer = new Customer();
-        try {
-            Connection conn=JDBCUtils.getConnection();
-            String sql= "select * from t_customer where name=? and password=?";
-            PreparedStatement ps=conn.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, password);
-            ResultSet rs=ps.executeQuery();
-            if (rs.next()){
-                customer.setName(rs.getString("name"));
-                customer.setPassword(rs.getString("password"));
-            }
-            else {
-                customer.setName("");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return customer;
+        CustomerDAO customerDAO = new CustomerDAO();
+        return customerDAO.login(name, password);
     }
 }
