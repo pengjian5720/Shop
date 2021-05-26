@@ -38,7 +38,7 @@
                         <input type="password" name="password"/>
                     </div>
                     <div class="fg_box">
-                        <a class="treg" href="register.jsp">立即注册</a>
+                        <span>${requestScope.get("error")}</span><a class="treg" href="register.jsp">立即注册</a>
                     </div>
                     <div class="sub_box">
                         <input type="submit" value="登陆"/>

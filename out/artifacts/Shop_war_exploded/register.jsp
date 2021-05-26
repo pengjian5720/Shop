@@ -12,6 +12,7 @@
     <title>briup电子商务-注册页</title>
     <link rel="stylesheet" href="css/common.css"/>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-1.12.3.min.js"></script>
 </head>
 <body>
 <div class="container2">
@@ -29,7 +30,7 @@
         </div>
     </div>
     <div class="content2">
-        <form action="login.html" method="post">
+        <form action="registerServlet" method="post">
             <ul class="reg_box">
                 <li>
                     <span><b>*</b>用户名：</span>
