@@ -83,7 +83,7 @@
             <h1>${category.name}</h1>
             <p>
               <c:forEach var="category1" items="${category.categories}">
-                ${category1.name}
+                <a href="list.html">${category1.name}</a>
               </c:forEach>
             </p>
           </dd>

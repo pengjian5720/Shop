@@ -6,5 +6,4 @@ import com.briup.bean.Category;
 
 public interface ICategoryDAO {
 	List<Category> findAllCategorys();
-	List<Category> findChildCategorys(int parentId);
 }

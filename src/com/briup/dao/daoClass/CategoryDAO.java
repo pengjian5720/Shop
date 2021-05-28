@@ -20,15 +20,18 @@ public class CategoryDAO implements ICategoryDAO {
         ResultSet rs=null;
         try {
             conn= JDBCUtils.getConnection();
-            String sql = "select * from t_category";
+            //一级分类信息
+            String sql = "select * from t_category where parent_id='0'";
             ps = conn.prepareStatement(sql);
             rs=ps.executeQuery();
+
             while (rs.next()) {
                 Category category = new Category();
                 category.setId(rs.getInt("id"));
                 category.setName(rs.getString("name"));
                 category.setDescription(rs.getString("description"));
-                category.setCategories(findChildCategorys(rs.getInt("parent_id")));
+                //递归查询子分类信息
+                category.setCategories(findChildCategorys(rs.getInt("id")));
                 categorylist.add(category);
             }
         } catch (SQLException e) {
@@ -38,8 +41,7 @@ public class CategoryDAO implements ICategoryDAO {
         }
         return categorylist;
     }
-
-    @Override
+    //封装查询子列表的方法，递归调用
     public List<Category> findChildCategorys(int parentId) {
         List<Category> categorylist = new ArrayList<Category>();
         PreparedStatement ps=null;
@@ -47,15 +49,19 @@ public class CategoryDAO implements ICategoryDAO {
         ResultSet rs=null;
         try {
             conn= JDBCUtils.getConnection();
-            String sql = "select * from t_categoryparent_id=?";
+            String sql = "select * from t_category where parent_id=?";
+            //查询子列表
             ps = conn.prepareStatement(sql);
+            ps.setInt(1,parentId);
+            //接收数据集
             rs=ps.executeQuery();
+            //将查询到的子列表封装到list中
             while (rs.next()) {
                 Category category = new Category();
                 category.setId(rs.getInt("id"));
                 category.setName(rs.getString("name"));
                 category.setDescription(rs.getString("description"));
-                category.setCategories(findChildCategorys(rs.getInt("parent_id")));
+                category.setCategories(findChildCategorys(rs.getInt("id")));
                 categorylist.add(category);
             }
         } catch (SQLException e) {
