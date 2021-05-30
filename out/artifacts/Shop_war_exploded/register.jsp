@@ -41,12 +41,12 @@
                     <input type="password" name="password"/>
                 </li>
                 <li>
-                    <span><b>*</b>邮编：</span>
-                    <input type="text" name="zipCode"/>
-                </li>
-                <li>
                     <span><b>*</b>地址：</span>
                     <input type="text" name="address"/>
+                </li>
+                <li>
+                    <span><b>*</b>邮编：</span>
+                    <input type="text" name="zipCode"/>
                 </li>
                 <li>
                     <span><b>*</b>电话：</span>
