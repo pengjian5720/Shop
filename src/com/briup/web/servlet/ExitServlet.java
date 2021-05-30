@@ -18,6 +18,7 @@ public class ExitServlet extends HttpServlet {
             ServletContext application=this.getServletContext();
             application.setAttribute("status","登入");
             application.setAttribute("url","login.jsp");
+            //销毁session对象
             session.invalidate();
             response.sendRedirect("index.jsp");
         }

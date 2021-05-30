@@ -1,4 +1,4 @@
-package com.briup.dao.daoInterface;
+package com.briup.dao;
 
 import java.util.Collection;
 import java.util.List;

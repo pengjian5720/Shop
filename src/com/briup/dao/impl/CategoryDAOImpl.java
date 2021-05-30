@@ -1,7 +1,7 @@
-package com.briup.dao.daoClass;
+package com.briup.dao.impl;
 
 import com.briup.bean.Category;
-import com.briup.dao.daoInterface.ICategoryDAO;
+import com.briup.dao.ICategoryDAO;
 import com.briup.utils.JDBCUtils;
 
 import java.sql.Connection;
@@ -11,10 +11,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDAO implements ICategoryDAO {
+public class CategoryDAOImpl implements ICategoryDAO {
+    /**
+     *查询所有商品各级分类信息
+     * @return 分类信息列表
+     */
     @Override
-    public List<Category> findAllCategorys() {
-        List<Category> categorylist = new ArrayList<Category>();
+    public List<Category> findAllCategories() {
+        List<Category> categories = new ArrayList<Category>();
         PreparedStatement ps=null;
         Connection conn=null;
         ResultSet rs=null;
@@ -24,24 +28,28 @@ public class CategoryDAO implements ICategoryDAO {
             String sql = "select * from t_category where parent_id='0'";
             ps = conn.prepareStatement(sql);
             rs=ps.executeQuery();
-
             while (rs.next()) {
                 Category category = new Category();
                 category.setId(rs.getInt("id"));
                 category.setName(rs.getString("name"));
                 category.setDescription(rs.getString("description"));
-                //递归查询子分类信息
+                //递归查询各级子分类信息
                 category.setCategories(findChildCategorys(rs.getInt("id")));
-                categorylist.add(category);
+                categories.add(category);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
             JDBCUtils.close(rs,conn,ps);
         }
-        return categorylist;
+        return categories;
     }
-    //封装查询子列表的方法，递归调用
+
+    /**
+     * 递归查询二级分类、三级分类及之后所有等级分类的子分类
+     * @param parentId 父级分类id
+     * @return 以列表形式返回父级分类所包含的所有子分类
+     */
     public List<Category> findChildCategorys(int parentId) {
         List<Category> categorylist = new ArrayList<Category>();
         PreparedStatement ps=null;
@@ -50,10 +58,8 @@ public class CategoryDAO implements ICategoryDAO {
         try {
             conn= JDBCUtils.getConnection();
             String sql = "select * from t_category where parent_id=?";
-            //查询子列表
             ps = conn.prepareStatement(sql);
             ps.setInt(1,parentId);
-            //接收数据集
             rs=ps.executeQuery();
             //将查询到的子列表封装到list中
             while (rs.next()) {
