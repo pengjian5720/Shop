@@ -26,11 +26,15 @@ public class FirstLoadingListener implements ServletContextListener,
          initialized(when the Web application is deployed). 
          You can initialize servlet context related data here.
       */
+      //获取上下文对象
       ServletContext application=sce.getServletContext();
       CategoryServiceImpl categoryService=new CategoryServiceImpl();
+      //调用service层方法，获取所有商品分类信息，并保存到application对象中
       application.setAttribute("categoryList",categoryService.findAllCategories());
-        application.setAttribute("status","登入");
-        application.setAttribute("url","login.jsp");
+      //设置按钮，首次加载时为未登入状态，提示用户登入
+      application.setAttribute("status","登入");
+      //设置“登入”按钮对应的链接
+      application.setAttribute("url","/Shop_war_exploded/login.jsp");
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

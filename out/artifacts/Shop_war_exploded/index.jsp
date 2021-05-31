@@ -20,17 +20,7 @@
 </head>
 <body>
 <!--顶部-->
-<div class="top">
-  <div class="top_center">
-    <ul class="top_bars">
-      <li><a href="#">${sessionScope.customer.name}</a>|</li>
-      <li><a href="${applicationScope.url}">${applicationScope.status}</a>|</li>
-      <li><a href="#">我的订单<span class="jt_down"></span></a>|</li>
-      <li><a href="#">购物车<span class="jt_down"></span></a>|</li>
-      <li><a href="#">网站导航<span class="jt_down"></span></a></li>
-    </ul>
-  </div>
-</div>
+<jsp:include page="include/header.jsp" flush="true"/>
 <!--头部-->
 <div class="header3">
   <a href="#"><img src="images/logo.png"></a>

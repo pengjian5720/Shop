@@ -27,9 +27,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             session.setAttribute("customer",customer);
             ServletContext application = this.getServletContext();
             application.setAttribute("status", "退出");
-            application.setAttribute("url","exitServlet");
-            //登入成功，跳转到DefaultInfoDisplayServlet
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+            application.setAttribute("url","/Shop_war_exploded/exitServlet");
+            //登入成功，跳转到index.jsp
+            response.sendRedirect("index.jsp");
         }
         else {
             request.setAttribute("error","用户名或密码错误");

@@ -6,4 +6,12 @@
     <listener>
         <listener-class>com.briup.web.listener.FirstLoadingListener</listener-class>
     </listener>
+    <filter>
+        <filter-name>LoginCheckFilter</filter-name>
+        <filter-class>com.briup.web.filter.LoginCheckFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginCheckFilter</filter-name>
+        <url-pattern>/privatePage/*</url-pattern>
+    </filter-mapping>
 </web-app>
