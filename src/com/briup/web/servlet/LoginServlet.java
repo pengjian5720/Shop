@@ -29,7 +29,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             application.setAttribute("status", "退出");
             application.setAttribute("url","exitServlet");
             //登入成功，跳转到DefaultInfoDisplayServlet
-            request.getRequestDispatcher("DefaultInfoDisplayServlet").forward(request,response);
+            request.getRequestDispatcher("index.jsp").forward(request,response);
         }
         else {
             request.setAttribute("error","用户名或密码错误");

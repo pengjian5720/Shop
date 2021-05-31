@@ -78,7 +78,7 @@
   <div class="c3_b1">
     <div class="c3_b1_left">
       <dl>
-        <c:forEach var="category" items="${applicationScope.categorylist}">
+        <c:forEach var="category" items="${applicationScope.categoryList}">
           <dd>
             <h1>${category.name}</h1>
             <p>
