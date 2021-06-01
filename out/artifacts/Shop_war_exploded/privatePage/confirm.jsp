@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="../css/table.css" />
     <link rel="stylesheet" href="../css/orderSure.css" />
     <script type="text/javascript">
-
         function showAdres(sp){
             var pa = document.getElementById("newAdres");
             console.log(pa.style['display']);

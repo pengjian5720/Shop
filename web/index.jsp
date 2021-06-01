@@ -66,6 +66,7 @@
 
 <div class="container3">
   <div class="c3_b1">
+    <%--展示所有分类--%>
     <div class="c3_b1_left">
       <dl>
         <c:forEach var="category" items="${applicationScope.categoryList}">
@@ -73,7 +74,7 @@
             <h1>${category.name}</h1>
             <p>
               <c:forEach var="category1" items="${category.categories}">
-                <a href="list.html">${category1.name}</a>
+                <a href="BookListServlet?categoryName0=${category.name}&categoryName=${category1.name}">${category1.name}</a>
               </c:forEach>
             </p>
           </dd>
@@ -146,123 +147,18 @@
   </div>
   <div class="c3_b2">
     <ul>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li class="no_mr">
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li class="no_mr">
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li>
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
-      <li class="no_mr">
-        <div class="c3_b2_txt">
-          <h1>疯狂JAVA讲义</h1>
-          <p>Java经典</p>
-          <h2>畅销书籍</h2>
-          <h2>覆盖java基础及全新内容</h2>
-          <p><a href="viewBook.html">更多精彩，点击进入</a></p>
-        </div>
-      </li>
+      <c:forEach var="book" items="${applicationScope.bookList}" end="5">
+        <li>
+          <div class="c3_b2_txt">
+            <h1>${book.name}</h1>
+            <p>${book.author}</p>
+            <h2>${book.publisher}</h2>
+            <h2>${book.description}</h2>
+            <p><a href="viewBook.html">更多精彩，点击进入</a></p>
+          </div>
+          <a href="viewBook.jsp"><img class="img1" src="${book.image}"></a>
+        </li>
+      </c:forEach>
     </ul>
   </div>
 </div>

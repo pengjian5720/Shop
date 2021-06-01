@@ -23,8 +23,6 @@
 <!--头部-->
 <div class="header3">
     <a href="#"><img src="../images/logo.png"  class="oneImg"></a>
-
-
     <div class="h3_right">
         <img src="../images/play_03.png" alt="">
     </div>

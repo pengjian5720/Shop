@@ -509,7 +509,6 @@ span.pwd_icon{
 	height:191px;
 	float:left;
 	margin-right:12px;
-	background:url(../images/p021.png) no-repeat center;
 	cursor:pointer;
 }
 .c3_b2 ul li.no_mr{
@@ -530,6 +529,15 @@ span.pwd_icon{
 	font-size:14px;
 	color:#ff003a;
 	margin:8px 0;
+}
+.img1 {
+	position: relative;
+	left: 150px;
+	top: -200px;
+	width: 100px;
+	height: 150px;
+	margin-top: 15px;
+
 }
 
 
@@ -980,7 +988,7 @@ span.pwd_icon{
 
 }
 .c4b5_pic_view img{
-	width:193px;
+	width:150px;
 	height:193px;
 	margin:0 0 8px 16px;
 }

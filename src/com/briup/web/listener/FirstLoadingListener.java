@@ -1,5 +1,6 @@
 package com.briup.web.listener;
 
+import com.briup.service.impl.BookServiceImpl;
 import com.briup.service.impl.CategoryServiceImpl;
 
 import javax.servlet.ServletContext;
@@ -29,12 +30,15 @@ public class FirstLoadingListener implements ServletContextListener,
       //获取上下文对象
       ServletContext application=sce.getServletContext();
       CategoryServiceImpl categoryService=new CategoryServiceImpl();
-      //调用service层方法，获取所有商品分类信息，并保存到application对象中
+      BookServiceImpl bookService=new BookServiceImpl();
+      //获取所有商品分类信息，并保存到application对象中
       application.setAttribute("categoryList",categoryService.findAllCategories());
       //设置按钮，首次加载时为未登入状态，提示用户登入
       application.setAttribute("status","登入");
       //设置“登入”按钮对应的链接
       application.setAttribute("url","/Shop_war_exploded/login.jsp");
+      //获取所有商品信息，保存到application对象中
+      application.setAttribute("bookList",bookService.findAllBooks());
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
