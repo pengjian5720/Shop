@@ -17,7 +17,8 @@ public class BookServiceImpl implements IBookService {
 
     @Override
     public Book findBookById(Integer id) {
-        return null;
+        BookDAOImpl bookDAO=new BookDAOImpl();
+        return bookDAO.findBookById(id);
     }
 
     @Override
@@ -30,7 +31,7 @@ public class BookServiceImpl implements IBookService {
         List<Book> bookList=bookDAO.findBooksByCategoryId(category.getId());
         for (Book book:bookList) {
             book.setCategory(category);
-            System.out.println("图片路径："+book.getImage());
+//            System.out.println("图片路径："+book.getImage());
         }
         return bookList;
     }

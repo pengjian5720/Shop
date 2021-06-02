@@ -170,13 +170,13 @@
                         <!--图片-->
                         <div class="c4_b5_c_box_pic">
                             <div class="c4b5_pic_view">
-                                <a href="viewBook.html"><img src="${book.image}"></a>
+                                <a href="FindBookServlet?bookId=${book.id}"><img src="${book.image}"></a>
                             </div>
                         </div>
                         <!--价钱-->
                         <div class="c4_b5_c_box_txt">
                             <h1>￥ ${book.price}</h1>
-                            <h2><a href="viewBook.html">${book.name}</a></h2>
+                            <h2><a href="FindBookServlet?bookId=${book.id}">${book.name}</a></h2>
                         </div>
                         <!--购买等操作-->
                         <div class="c4b5_el">

@@ -126,8 +126,8 @@ public class BookDAOImpl implements IBookDAO {
             e.printStackTrace();
         }finally {
             JDBCUtils.close(rs,conn,ps);
-            return bookList;
         }
+        return bookList;
     }
 
 }

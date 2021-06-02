@@ -154,9 +154,9 @@
             <p>${book.author}</p>
             <h2>${book.publisher}</h2>
             <h2>${book.description}</h2>
-            <p><a href="viewBook.html">更多精彩，点击进入</a></p>
+            <p><a href="FindBookServlet?bookId=${book.id}">更多精彩，点击进入</a></p>
           </div>
-          <a href="viewBook.jsp"><img class="img1" src="${book.image}"></a>
+          <a href="FindBookServlet?bookId=${book.id}"><img class="img1" src="${book.image}"></a>
         </li>
       </c:forEach>
     </ul>

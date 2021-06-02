@@ -85,7 +85,7 @@
         <div class="cn5_top_y center01">
             <div class="cn5topy_1">
                 <div class="cn5topy_imgview">
-                    <img src="images/viewBook.png"/>
+                    <img src="${requestScope.book.image}"/>
                     <!-- <ul class="cn5topy_imglist">
                         <li><a href="#"><img src="images/viewBook.png"></a></li>
                         <li class="current"><a href="#"><img src="images/viewBook.png"></a></li>
@@ -96,10 +96,10 @@
                 </div>
             </div>
             <div class="cn5topy_2">
-                <h1 class="pro_title font15">Effective Java (中文版) 第2版</h1>
+                <h1 class="pro_title font15">${requestScope.book.name}</h1>
                 <div class="pro_price">
                     <div class="pro_price_x">
-                        <p> briup价：<b>￥69.00</b> <a href="#">(降价通知)</a></p>
+                        <p> briup价：<b>￥${requestScope.book.price}</b> <a href="#">(降价通知)</a></p>
                     </div>
 
                 </div>
@@ -114,21 +114,21 @@
                     <div class="pro_select">
                         <div class="pro_key pro_key_vertical fl">作者：</div>
                         <ul class="pro_select_vals">
-                            <li>托马斯</li>
+                            <li>${requestScope.book.author}</li>
 
                         </ul>
                     </div>
                     <div class="pro_select">
                         <div class="pro_key pro_key_vertical fl">出版社：</div>
                         <ul class="pro_select_vals">
-                            <li> 清华大学出版社</li>
+                            <li> ${requestScope.book.publisher}</li>
 
                         </ul>
                     </div>
                     <div class="pro_select">
                         <div class="pro_key pro_key_vertical fl">书籍介绍：</div>
                         <ul class="pro_select_vals">
-                            <li> 出版时间：2016-10-01</li>
+                            <li> 出版时间：${requestScope.book.pubDate}</li>
                             <li>包装：平装</li>
                             <li>正文语种：中文</li>
                         </ul>
@@ -175,14 +175,14 @@
             <div class="c5_b2_right_1 box">
                 <div class="introduce_item">
                     <ul>
-                        <li>商品名称：Effective Java (中文版) 第2版</li>
-                        <li>商品编号：1002024</li>
+                        <li>商品名称：${requestScope.book.name}</li>
+                        <li>商品编号：${requestScope.book.id}</li>
                         <li class="fr"><a class="color_link1" href="#">更多参数>></a></li>
                     </ul>
                 </div>
             </div>
             <div class="intro_pics">
-                <img class="intro_pic" src="images/viewBook.png">
+                <img class="intro_pic" src="${requestScope.book.image}">
             </div>
         </div>
 
