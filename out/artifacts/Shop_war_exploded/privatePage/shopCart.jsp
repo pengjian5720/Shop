@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -30,151 +31,61 @@
 </div>
 <!--中间部分div-->
 <div class="empty">
-    <div class="peisong"><pre>全部商品  2 </pre></div>
+    <div class="peisong"><pre>全部商品${sessionScope.shopCar.size}</pre></div>
     <div class="mainCenter">
         <div class="allCheck">
-            <input type="checkbox"><p>全选</p>
-            <p class="leftM">商品</p>
-            <p class="rightM">单价(元)</p>
-            <p class="leftM">数量</p>
-            <p class="leftM">小计(元)</p>
-            <p class="leftM">操作</p>
+            <tr>
+                <td><input type="checkbox"><p>全选</p></td>
+                <p class="leftM">商品</p></td>
+                <td><p class="rightM">单价(元)</p></td>
+                <td><p class="leftM">数量</p></td>
+                <td><p class="leftM">小计(元)</p></td>
+                <td><p class="leftM">操作</p></td>
+            </tr>
         </div>
         <div class="mainPro">
             <div class="aa">
                 <input type="checkbox"><span id="but">自营</span>
             </div>
+            <c:forEach var="orderLine" items="${sessionScope.shopCar.orderLines}" varStatus="status">
             <form>
                 <table>
                     <tbody>
                     <tr>
-                        <td class="index">1</td>
-                        <td>
-                            <img src="../images/1.png" >
-                            <span>
-                                    Effective JAVA
+                            <td class="index">${status.index+1}</td>
+                            <td>
+                                <img src="../${orderLine.book.image}" >
+                                <span>
+                                    ${orderLine.book.name}
                                     <br>
                                 </span>
-                        </td>
-                        <td>
-                            <span>¥66.00</span>
-                        </td>
+                            </td>
+                            <td>
+                                <span>${orderLine.book.price}</span>
+                            </td>
                         <td class="index2">
-                            <input type="text" name="num" value="1"><br>
+                            <input type="text" name="num" value="${orderLine.num}"><br>
                             <span>有货</span>
                         </td>
                         <td>
-                            <span>¥66.00</span>
+                            <span>${orderLine.cost}</span>
                         </td>
                         <td>
                             <button>保存</button>
                             <button>取消</button>
+                            <input type="submit" name="cancel">
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </form>
-            <form>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td class="index">1</td>
-                        <td>
-                            <img src="../images/1.png" >
-                            <span>
-                                    Effective JAVA
-                                    <br>
-                                </span>
-                        </td>
-                        <td>
-                            <span>¥66.00</span>
-                        </td>
-                        <td class="index2">
-                            <input type="text" name="num" value="1"><br>
-                            <span>有货</span>
-                        </td>
-                        <td>
-                            <span>¥66.00</span>
-                        </td>
-                        <td>
-                            <button>保存</button>
-                            <button>取消</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </form> <form>
-            <table>
-                <tbody>
-                <tr>
-                    <td class="index">1</td>
-                    <td>
-                        <img src="../images/1.png" >
-                        <span>
-                                    Effective JAVA
-                                    <br>
-                                </span>
-                    </td>
-                    <td>
-                        <span>¥66.00</span>
-                    </td>
-                    <td class="index2">
-                        <input type="text" name="num" value="1"><br>
-                        <span>有货</span>
-                    </td>
-                    <td>
-                        <span>¥66.00</span>
-                    </td>
-                    <td>
-                        <button>保存</button>
-                        <button>取消</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </form>
-
-            <!-- <div class="min_content">
-               <div class="bb">
-                <input type="text" >
-                <img src="images/1.png" >
-                 <span>
-                    Effective JAVA
-                    <br>
-                </span>
-                <div class="mm">
-                    <span>¥66.00</span>
-                </div>
-                <img src="images/have_03.png" style="margin-top:40px">
-                <div class="ri">¥66.00元</div>
-                <div class="righ">
-                     <div class="rig">删除</div>
-                </div>
-            </div>
-
--->
-            <!-- <div class="bb">
-                   <input type="checkbox" >
-                   <img src="images/1.png" >
-                    <span>
-                       Effective JAVA
-                       <br>
-                   </span>
-                   <div class="mm">
-                       <span>¥66.00</span>
-                   </div>
-                   <img src="images/have_03.png" style="margin-top:40px">
-                   <div class="ri">¥66.00元</div>
-                   <div class="righ">
-                        <div class="rig">删除</div>
-                   </div>
-               </div> -->
+            </c:forEach>
         </div>
         <div class="allButtom">
             <!-- <p class="caozuo">去结算</p> -->
-            <!-- <input value="去提交" class="caozuo" type="submit"> -->
+<%--            <input value="去提交" class="caozuo" type="submit">--%>
             <a href="confirm.jsp" class="caozuo">去提交</a>
-            <span>已选择<font>2</font>件商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总价(不含运费)：<font>¥132.00元</font></span>
+            <span>已选择<font>${sessionScope.shopCar.orderLines.size()}</font>件商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总价(不含运费)：<font>¥${sessionScope.shopCar.cost}元</font></span>
         </div>
 
     </div>

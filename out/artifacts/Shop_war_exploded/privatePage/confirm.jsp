@@ -20,10 +20,10 @@
             console.log(pa.style['display']);
             if(pa.style['display']=="none"){
                 pa.style['display'] = 'block';
-                sp.innerHTML = "取消新增地址";
+                sp.innerHTML = "取消修改地址";
             }else{
                 pa.style['display'] = 'none';
-                sp.innerHTML = "新增收货地址";
+                sp.innerHTML = "修改收货地址";
             }
         }
     </script>
@@ -46,22 +46,17 @@
 <div class="content">
     <div class="contentCenter">
 
-        <form action="orderlist.html" name="orderForm">
+        <form action="AddToOrderListServlet" name="orderForm">
 
             <div class="centerTop">
                 <b style="font-size:20px;">收货人信息</b>
 
-                <b style="float: right;cursor: pointer;" onclick="showAdres(this);"
-                   ondblclick="hideAdres(this);">新增收货地址</b>
+<%--                <b style="float: right;cursor: pointer;" onclick="showAdres(this);"--%>
+<%--                   ondblclick="hideAdres(this);">修改收货地址</b>--%>
                 <ul class="adres">
-
                     <li>
                         <input type="radio" name="shipAddId" value="" style="width:50px">
-                        收货人姓名1&nbsp;&nbsp;&nbsp;收货电话1&nbsp;&nbsp;&nbsp;收货地址1
-                    </li>
-                    <li>
-                        <input type="radio" name="shipAddId" value="" style="width:50px">
-                        收货人姓名2&nbsp;&nbsp;&nbsp;收货电话2&nbsp;&nbsp;&nbsp;收货地址2
+                        ${sessionScope.customer.name}&nbsp;&nbsp;&nbsp;${sessionScope.customer.telephone}&nbsp;&nbsp;&nbsp;${sessionScope.customer.address}
                     </li>
 
                 </ul>
@@ -75,20 +70,22 @@
 
 
 
-            <p class="singleP"><b>送货清单</b><span><a href="shopCart.html">返回修改购物车</a></span></p>
+            <p class="singleP"><b>送货清单</b><span><a href="AddToShopCartServlet">返回修改购物车</a></span></p>
             <div class="bigDiv">
                 <div class="twoDiv">
                     <b>商家：briup自营</b>
+                    <c:forEach var="orderLine" items="${sessionScope.shopCar.orderLines}" varStatus="status">
                     <ul class="oneUL">
                         <li>
                             <img src="../images/viewBook.png" class="pic">
-                            <p>计算机&nbsp;&nbsp;JAVA&nbsp;&nbsp;Effective JAVA&nbsp;&nbsp;</p>
-                            <p><font>¥100169.00</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有货</p>
+                            <p>${orderLine.book.name}&nbsp;&nbsp;</p>
+                            <p><font>¥${orderLine.book.name}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×${orderLine.num}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有货</p>
                             <p><img src="../images/sureLogo_14.png" alt=""><span>七天无理由退换货</span></p>
 
                         </li>
                         <li><pre>【赠品】  高级定制干花书签  随机  ×1</pre></li>
                     </ul>
+                    </c:forEach>
                     <ul class="oneUL">
                         <li>
                             <img src="../images/viewBook.png" class="pic">
@@ -103,13 +100,13 @@
             </div>
 
             <div class="money">
-                <span><font>2</font>件商品，总商品金额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥14699</span>
+                <span><font>2</font>件商品，总商品金额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥${sessionScope.shopCar.cost}</span>
                 <span><img src="../images/sureLogo_18.png" alt="">运费：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥0.00</span>
 
-                <span>应付总额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥1470.00</span>
+                <span>应付总额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥${sessionScope.shopCar.cost}</span>
             </div>
             <div class="submit">
-                <span>应付金额：<font>¥14699.00</font><input type="image" src="../images/21_03.png"></span>
+                <span>应付金额：<font>¥${sessionScope.shopCar.cost}</font><input type="image" src="../images/21_03.png"></span>
             </div>
         </form>
     </div>

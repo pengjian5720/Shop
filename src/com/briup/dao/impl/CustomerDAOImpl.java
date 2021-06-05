@@ -60,6 +60,34 @@ public class CustomerDAOImpl implements ICustomerDAO {
 
     }
 
+    @Override
+    public Customer findCustomerById(Integer id) {
+        Customer customer = new Customer();
+        ResultSet rs=null;
+        try {
+            conn= JDBCUtils.getConnection();
+            String sql= "select * from t_customer where name=? ";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            //执行查询语句，返回查找的用户
+            rs = ps.executeQuery();
+            //ResultSet数据封装到customer中
+            if (rs.next()){
+                customer.setName(rs.getString("name"));
+                customer.setPassword(rs.getString("password"));
+                customer.setZipCode(rs.getString("zipCode"));
+                customer.setAddress(rs.getString("address"));
+                customer.setTelephone(rs.getString("telephone"));
+                customer.setEmail(rs.getString("email"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(rs,conn,ps);
+        }
+        return customer;
+    }
+
 //    @Override
 //    public Customer login(String name, String password) {
 //        Customer customer = null;

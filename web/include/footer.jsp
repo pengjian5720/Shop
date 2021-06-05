@@ -1,76 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
-  Date: 2021/5/31
-  Time: 14:39
+  Date: 2021/6/2
+  Time: 21:19
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>briup电子商务-首页</title>
-    <link rel="stylesheet" href="../css/common.css"/>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/icons.css" />
-    <link rel="stylesheet" href="../css/table.css" />
-    <link rel="stylesheet" type="text/css" href="../css/orderlist.css">
-</head>
-<body>
-<!--顶部-->
-<jsp:include page="../include/header.jsp" flush="true"/>
-<!--头部-->
-<div class="header3">
-    <a href="#"><img src="../images/logo.png"></a>
-    <div class="h3_center">
-        <div class="search_box">
-            <input type="text"/>
-            <span>搜索</span>
-        </div>
-
-    </div>
-
-</div>
-<!--头部导航-->
-<div class="nav_top">
-    <div class="nav_top_center">
-        <div>
-            订单列表
-        </div>
-    </div>
-</div>
-
-<!--内容-->
-<div class="container4">
-    <table>
-        <thead>
-        <tr>
-            <th>序号</th>
-            <th>订单编号</th>
-            <th>订单金额</th>
-            <th>订单时间</th>
-            <th>收货人</th>
-            <th>操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <%! int i=0;%>
-        <c:forEach var="orderform" items="${requestScope.formList}">
-        <tr>
-            <td align="center"><%=i++%></td>
-            <td>${orderform.id}</td>
-            <td>${orderform.cost}</td>
-            <td>${orderform.orderdate}</td>
-            <td>${orderform.shopAddress.receiveName}</td>
-            <td><input type="button" value="删除" onclick="javascript:window.location='orderlist.html';"><input type="button" value="明细" onclick="javascript:window.location='orderdetail.html';">  </td>
-        </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-
-</div>
-<!--脚部-->
 <div class="footer3">
     <div class="f3_top">
         <div class="f3_center">
@@ -119,7 +54,7 @@
             </li>
             <li class="f3_mi_li06">
                 <h1>客服中心</h1>
-                <img src="../images/qrcode_jprj.jpg" width="80px" height="80px">
+                <img src="images/qrcode_jprj.jpg" width="80px" height="80px">
                 <p>抢红包、疑问咨询、优惠活动</p>
             </li>
         </ul>
@@ -132,9 +67,6 @@
             <a href="#">供货商入驻</a>
         </p>
         <p>沪ICP备14033591号-8 杰普briup.com版权所有 杰普软件科技有限公司 </p>
-        <img src="../images/police.png">
+        <img src="images/police.png">
     </div>
 </div>
-
-</body>
-</html>
