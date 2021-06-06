@@ -3,7 +3,6 @@ package com.briup.dao.impl;
 import com.briup.bean.OrderForm;
 import com.briup.bean.ShopAddress;
 import com.briup.dao.IOrderFormDAO;
-import com.briup.service.impl.OrderFromServiceImpl;
 import com.briup.utils.JDBCUtils;
 
 import java.sql.*;
@@ -23,7 +22,7 @@ public class OrderFormDAOImpl implements IOrderFormDAO {
             ps.setString(1,of.getShopAddress().getReceiveName());
             ps.setString(2,of.getShopAddress().getAddress());
             ps.setString(3,of.getShopAddress().getPhone());
-            ps.setInt(4,of.getShopAddress().getCustomer().getId());
+            ps.setInt(4,of.getCustomer().getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

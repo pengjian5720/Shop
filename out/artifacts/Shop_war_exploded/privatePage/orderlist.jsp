@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -54,54 +55,17 @@
         </tr>
         </thead>
         <tbody>
+        <%! int i=0;%>
+        <c:forEach var="orderform" items="${requestScope.formList}">
         <tr>
-            <td align="center">1</td>
-            <td>2000-2901</td>
-            <td>234</td>
-            <td>未付款</td>
-            <td>tom</td>
+            <td align="center"><%=i++%></td>
+            <td>${orderform.id}</td>
+            <td>${orderform.cost}</td>
+            <td>${orderform.orderdate}</td>
+            <td>${orderform.shopAddress.receiveName}</td>
             <td><input type="button" value="删除" onclick="javascript:window.location='orderlist.html';"><input type="button" value="明细" onclick="javascript:window.location='orderdetail.html';">  </td>
         </tr>
-        <tr>
-            <td align="center">1</td>
-            <td>2000-2902</td>
-            <td>234</td>
-            <td>未付款</td>
-            <td>tom</td>
-            <td><input type="button" value="删除" onclick="javascript:window.location='orderlist.html';"><input type="button" value="明细" onclick="javascript:window.location='orderdetail.html';">  </td>
-        </tr>
-        <tr>
-            <td align="center">1</td>
-            <td>2000-2903</td>
-            <td>234</td>
-            <td>未付款</td>
-            <td>tom</td>
-            <td><input type="button" value="删除" onclick="javascript:window.location='orderlist.html';"><input type="button" value="明细" onclick="javascript:window.location='orderdetail.html';">  </td>
-        </tr>
-        <tr>
-            <td align="center">1</td>
-            <td>2000-2904</td>
-            <td>234</td>
-            <td>未付款</td>
-            <td>tom</td>
-            <td><input type="button" value="删除" onclick="javascript:window.location='orderlist.html';"><input type="button" value="明细" onclick="javascript:window.location='orderdetail.html';">  </td>
-        </tr>
-        <tr>
-            <td align="center">1</td>
-            <td>2000-2905</td>
-            <td>234</td>
-            <td>未付款</td>
-            <td>tom</td>
-            <td><input type="button" value="删除" onclick="javascript:window.location='orderlist.html';"><input type="button" value="明细" onclick="javascript:window.location='orderdetail.html';">  </td>
-        </tr>
-        <tr>
-            <td align="center">1</td>
-            <td>2000-2906</td>
-            <td>234</td>
-            <td>未付款</td>
-            <td>tom</td>
-            <td><input type="button" value="删除" onclick="javascript:window.location='orderlist.html';"><input type="button" value="明细" onclick="javascript:window.location='orderdetail.html';">  </td>
-        </tr>
+        </c:forEach>
         </tbody>
     </table>
 

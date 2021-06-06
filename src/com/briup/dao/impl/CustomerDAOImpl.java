@@ -44,6 +44,7 @@ public class CustomerDAOImpl implements ICustomerDAO {
             rs = ps.executeQuery();
             //ResultSet数据封装到customer中
             if (rs.next()){
+                customer.setId(rs.getInt("id"));
                 customer.setName(rs.getString("name"));
                 customer.setPassword(rs.getString("password"));
                 customer.setZipCode(rs.getString("zipCode"));

@@ -14,7 +14,7 @@
             <li><a href="${applicationScope.url}">${applicationScope.status}</a>|</li>
             <li><a href="/Shop_war_exploded/privatePage/shopCart.jsp">购物车<span class="jt_down"></span></a>|</li>
             <li><a href="/Shop_war_exploded/privatePage/confirm.jsp">我的订单<span class="jt_down"></span></a>|</li>
-            <li><a href="#">网站导航<span class="jt_down"></span></a></li>
+            <li><a href="/Shop_war_exploded/index.jsp">首页<span class="jt_down"></span></a></li>
         </ul>
     </div>
 </div>

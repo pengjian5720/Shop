@@ -7,19 +7,19 @@ import com.briup.dao.impl.ShopAddressDAOImpl;
 import java.util.List;
 
 public class ShopAddressServiceImpl implements IShopAddressDAO {
+    ShopAddressDAOImpl shopAddressDAO = new ShopAddressDAOImpl();
     @Override
     public List<ShopAddress> findAddressByCustomerId(Integer id) {
-        return null;
+        return shopAddressDAO.findAddressByCustomerId(id);
     }
 
     @Override
     public void saveAddress(ShopAddress sd) {
-
+        shopAddressDAO.saveAddress(sd);
     }
 
     @Override
     public ShopAddress findShopAddressById(Integer id) {
-        ShopAddressDAOImpl shopAddressDAO=new ShopAddressDAOImpl();
         return shopAddressDAO.findShopAddressById(id);
     }
 }

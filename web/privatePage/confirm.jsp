@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -46,8 +47,7 @@
 <div class="content">
     <div class="contentCenter">
 
-        <form action="AddToOrderListServlet" name="orderForm">
-
+        <form action="../AddToOrderListServlet" name="orderForm" method="post">
             <div class="centerTop">
                 <b style="font-size:20px;">收货人信息</b>
 
@@ -77,8 +77,8 @@
                     <c:forEach var="orderLine" items="${sessionScope.shopCar.orderLines}" varStatus="status">
                     <ul class="oneUL">
                         <li>
-                            <img src="../images/viewBook.png" class="pic">
-                            <p>${orderLine.book.name}&nbsp;&nbsp;</p>
+                            <img src="../${orderLine.book.image}" class="pic">
+                            <p>${orderLine.book.price}&nbsp;&nbsp;</p>
                             <p><font>¥${orderLine.book.name}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×${orderLine.num}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有货</p>
                             <p><img src="../images/sureLogo_14.png" alt=""><span>七天无理由退换货</span></p>
 
@@ -86,21 +86,11 @@
                         <li><pre>【赠品】  高级定制干花书签  随机  ×1</pre></li>
                     </ul>
                     </c:forEach>
-                    <ul class="oneUL">
-                        <li>
-                            <img src="../images/viewBook.png" class="pic">
-                            <p>计算机&nbsp;&nbsp;JAVA&nbsp;&nbsp;Effective JAVA&nbsp;&nbsp;</p>
-                            <p><font>¥100169.00</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有货</p>
-                            <p><img src="../images/sureLogo_14.png" alt=""><span>七天无理由退换货</span></p>
-
-                        </li>
-                        <li><pre>【赠品】  高级定制干花书签  随机 ×1</pre></li>
-                    </ul>
                 </div>
             </div>
 
             <div class="money">
-                <span><font>2</font>件商品，总商品金额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥${sessionScope.shopCar.cost}</span>
+                <span><font>${sessionScope.shopCar.orderLines.size()}</font>件商品，总商品金额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥${sessionScope.shopCar.cost}</span>
                 <span><img src="../images/sureLogo_18.png" alt="">运费：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥0.00</span>
 
                 <span>应付总额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥${sessionScope.shopCar.cost}</span>

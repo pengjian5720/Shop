@@ -25,6 +25,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             HttpSession session= request.getSession(true);
             //将用户信息保存到session中
             session.setAttribute("customer",customer);
+            System.out.println("创建的sessionId"+session.getId());
             ServletContext application = this.getServletContext();
             application.setAttribute("status", "退出");
             application.setAttribute("url","/Shop_war_exploded/exitServlet");

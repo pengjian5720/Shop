@@ -17,15 +17,10 @@ import java.util.List;
 @WebServlet("/AddToOrderLineServlet")
 public class AddToOrderLineServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long orderFormId=Integer.parseInt(request.getParameter("orderFrom"));
+        long orderFormId=(long)Integer.parseInt(request.getParameter("orderForm"));
         OrderFormServiceImpl orderFormService=new OrderFormServiceImpl();
         OrderForm orderForm=orderFormService.findOrderFormByOrderid(orderFormId);
-        Collection<OrderLine> orderLineList=orderForm.getOrderLines();
-        OrderLineServiceImpl orderLineService=new OrderLineServiceImpl();
-        for (OrderLine ol:orderLineList) {
-            orderLineService.saveOrderLine(ol);
-        }
-        request.getRequestDispatcher("DisplayOrderListServlet").forward(request,response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

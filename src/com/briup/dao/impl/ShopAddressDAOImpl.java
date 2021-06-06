@@ -24,6 +24,7 @@ public class ShopAddressDAOImpl implements IShopAddressDAO {
         try {
             conn= JDBCUtils.getConnection();
             ps = conn.prepareStatement(sql);
+            //出现空指针异常
             ps.setInt(1,id);
             rs = ps.executeQuery();
             while (rs.next()) {
